@@ -57,8 +57,15 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
   /// This function sets up the notification content and trigger, creates a notification request,
   /// and then adds the request to the notification center.
   private func sendNotification() {
+    var stringBody = "Please tap here to restart the app";
+    let preferredLanguage = Locale.preferredLanguages.first
+    if(preferredLanguage == "vi"){
+        stringBody = "Vui lòng chạm vào đây để khởi động lại ứng dụng."
+    }
+
     let content = UNMutableNotificationContent()
-    content.title = "Tap to open the app!"
+    content.title = "TVSI Mobile"
+    content.body = stringBody
     content.sound = nil
 
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
