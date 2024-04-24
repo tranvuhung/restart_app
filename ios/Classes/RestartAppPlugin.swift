@@ -59,7 +59,10 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
   private func sendNotification() {
     var stringBody = "Please tap here to restart the app";
     let preferredLanguage = Locale.preferredLanguages.first
-    if(preferredLanguage == "vi" || preferredLanguage == "vi-VN"){
+
+    let arr = preferredLanguage.components(separatedBy: "-")
+    let deviceLanguage = arr.first
+    if(deviceLanguage == "vi"){
         stringBody = "Vui lòng chạm vào đây để khởi động lại ứng dụng."
     }
 
